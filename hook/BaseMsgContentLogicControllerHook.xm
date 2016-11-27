@@ -4,6 +4,7 @@
 @interface CMessageWrap : NSObject
 @property(retain, nonatomic) NSString *m_nsContent; 
 @property(nonatomic) unsigned long m_uiStatus;
+@property(nonatomic) unsigned long m_uiMessageType;
 @end
 
 @interface BaseMsgContentLogicController : NSObject
@@ -15,7 +16,7 @@
 - (void)OnAddMsg:(id)arg1 MsgWrap:(CMessageWrap *)arg2{
     %orig;
     NSLog(@"yujianbo:%lu",[arg2 m_uiStatus]);
-    if([arg2 m_uiStatus]==4){
+    if([arg2 m_uiStatus]==4 && [arg2 m_uiMessageType]==1){
         NSString *msg = [arg2 m_nsContent];
         NSString *sendMsg = [NSString stringWithFormat:@"auto reply to: %@",msg];
         [self SendTextMessage:sendMsg];
