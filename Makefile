@@ -5,7 +5,7 @@ TARGET = iphone:latest:8.0
 include theos/makefiles/common.mk
 
 TWEAK_NAME = WeChatAutoReply
-WeChatAutoReply_FILES = Tweak.xm
+WeChatAutoReply_FILES = hook/BaseMsgContentLogicControllerHook.xm
 WeChatAutoReply_FRAMEWORKS = UIKit
 
 include $(THEOS_MAKE_PATH)/tweak.mk
